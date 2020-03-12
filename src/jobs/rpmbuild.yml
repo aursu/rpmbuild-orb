@@ -1,0 +1,47 @@
+description: >
+  Build RPM packages and upload them into Bintray
+
+parameters:
+  base_file:
+    type: string
+    default: "docker-compose.base.yml"
+    description: >
+      Docker Compose file to use for base image building
+
+  build_file:
+    type: string
+    default: "docker-compose.yml"
+    description: >
+      Docker Compose file to use for build image building
+
+  base_service:
+    type: string
+    description: >
+      Docker Compose service inside provided base_file Docker Compose config
+
+  build_service:
+    type: string
+    description: >
+      Docker Compose service inside provided build_file Docker Compose config
+
+  bintray_uploader:
+    type: string
+    description: >
+      Docker service to use in order to upload RPM packages into BinTray
+
+executor:
+  name: default
+
+steps:
+  - git
+  - base:
+      file: << parameters.base_file >>
+      service: << parameters.base_service >>
+  - build:
+      file: << parameters.build_file >>
+      service: << parameters.build_service >>
+  - rpm:
+      file: << parameters.build_file >>
+      service: << parameters.build_service >>
+  - bintray:
+      uploader: << parameters.bintray_uploader >>

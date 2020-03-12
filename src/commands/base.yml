@@ -1,0 +1,20 @@
+description: >
+  Create base image for rpmbuild which usually contain all dependencies for RPM
+  build based on BuildRequires directives from spec file
+
+parameters:
+  file:
+    type: string
+    default: "docker-compose.base.yml"
+    description: >
+      Docker Compose file to use for base image building
+
+  service:
+    type: string
+    description: >
+      Docker Compose service inside provided Docker Compose config
+
+steps:
+  - run:
+      name: Create base image using << parameters.service >>
+      command: docker-compose -f << parameters.file >> build --no-cache --pull << parameters.service >>

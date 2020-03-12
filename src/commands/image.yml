@@ -1,0 +1,54 @@
+description: >
+    Build Docker image and  upload it into Docker Hub
+    Depends on environment variables
+      DOCKER_USER
+      DOCKER_PASS
+
+parameters:
+  file:
+    type: string
+    description: >
+      Docker Compose file to use for Docker build image building
+
+  service:
+    type: string
+    description: >
+      Docker Compose service inside provided Docker Compose file
+
+  shorttag:
+    type: boolean
+    default: true
+    description: >
+      Flag which used to enable/disable Docker images building
+      prefixed with short OS version tags
+
+steps:
+  - run:
+      name: Build docker image using << parameters.service >>
+      command: docker-compose -f << parameters.file >> build --no-cache --pull << parameters.service >>
+  - when:
+      condition: << parameters.shorttag >>
+      steps:
+        - run:
+            name: Build docker image using << parameters.service >> with short OS tags
+            environment:
+              OS6TAG: 6
+              OS7TAG: 7
+              OS8TAG: 8
+            command: docker-compose -f << parameters.file >> build << parameters.service >>
+  - run:
+      name: Login into Docker Hub
+      command: docker login -u $DOCKER_USER -p $DOCKER_PASS
+  - run:
+      name: Push image into Docker Hub
+      command: docker-compose -f << parameters.file >> push << parameters.service >>
+  - when:
+      condition: << parameters.shorttag >>
+      steps:
+        - run:
+            name: Build docker image using << parameters.service >> with short OS tags
+            environment:
+              OS6TAG: 6
+              OS7TAG: 7
+              OS8TAG: 8
+            command: docker-compose -f << parameters.file >> push << parameters.service >>

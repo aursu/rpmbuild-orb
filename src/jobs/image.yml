@@ -1,0 +1,22 @@
+description: >
+  Checkout project  and build  Docker image
+
+parameters:
+  compose_file:
+    type: string
+    default: "build/docker-compose.yml"
+    description: >
+      Docker Compose file to use for image building
+
+  build_service:
+    type: string
+    description: >
+      Docker Compose service inside provided Docker Compose config
+
+executor: default
+
+steps:
+  - git
+  - image:
+      file: << parameters.compose_file >>
+      service: << parameters.build_service >>

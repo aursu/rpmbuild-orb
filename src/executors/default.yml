@@ -1,0 +1,13 @@
+description: >
+  CentOS RPM and Docker rpmbuild images build environment
+
+machine:
+  image: ubuntu-1604:201903-01
+
+environment:
+  OS6: 6.10
+  OS7: 7.7.1908
+  OS8: 8.1.1911
+  OS6TAG: 6.10
+  OS7TAG: 7.7.1908
+  OS8TAG: 8.1.1911

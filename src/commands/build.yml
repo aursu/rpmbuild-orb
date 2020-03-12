@@ -1,0 +1,20 @@
+description: >
+  Create build image for rpmbuild tool. Image usually contain rpmbuild
+  environment (folders SPECS and SOURCES with required buiild assets)
+
+parameters:
+  file:
+    type: string
+    default: "docker-compose.yml"
+    description: >
+      Docker Compose file to use for build image building
+
+  service:
+    type: string
+    description: >
+      Docker Compose service inside provided Docker Compose config
+
+steps:
+  - run:
+      name: Create build image using << parameters.service >>
+      command: docker-compose -f << parameters.file >> build --no-cache << parameters.service >>

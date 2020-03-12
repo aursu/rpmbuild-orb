@@ -1,0 +1,22 @@
+description: >
+  Short example of build PHP Apcu pecl extension for PHP 7.1 on CentOS 7
+usage:
+  version: 2.1
+  orbs:
+    rpmbuild: aursu/rpmbuild@1.0
+  jobs:
+    build:
+      executor:
+        name: rpmbuild/default
+      steps:
+        - rpmbuild/git
+        - rpmbuild/build:
+            service: centos7apcu
+        - rpmbuild/rpm:
+            service: centos7apcu
+        - rpmbuild/bintray:
+            uploader: centos7bintray
+        - rpmbuild/image:
+            file: build/php71/docker-compose.yml
+            service: centos7apcuphp7build
+            shorttag: false

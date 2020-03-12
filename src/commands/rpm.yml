@@ -1,0 +1,19 @@
+description: >
+  Create rpm packages using rpmbuild tool
+
+parameters:
+  file:
+    type: string
+    default: "docker-compose.yml"
+    description: >
+      Docker Compose file to use for RPM packages building
+
+  service:
+    type: string
+    description: >
+      Docker Compose service inside provided Docker Compose config
+
+steps:
+  - run:
+      name: Build RPM packages using << parameters.service >>
+      command: docker-compose -f << parameters.file >> up << parameters.service >>
