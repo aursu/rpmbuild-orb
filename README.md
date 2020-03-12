@@ -1,2 +1,2 @@
 # rpmbuild-orb
-CircleCI rpm build orb
+CircleCI rpmbuild orb
