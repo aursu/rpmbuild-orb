@@ -1,7 +1,7 @@
 description: >
   Build RPM packages and upload them into Bintray
 
-parameters
+parameters:
   build_file:
     type: string
     default: "docker-compose.yml"
