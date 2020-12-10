@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   rpmbuild: aursu/rpmbuild@<<pipeline.parameters.dev-orb-version>>
-  circleci-cli: circleci/circleci-cli@0.1.8
+  cli: circleci/circleci-cli@0.1.8
   orb-tools: circleci/orb-tools@10.0
 
 # Pipeline Parameters
