@@ -1,16 +1,23 @@
 version: 2.1
 
 orbs:
-  orb-tools: circleci/orb-tools@9.0.1
   rpmbuild: aursu/rpmbuild@<<pipeline.parameters.dev-orb-version>>
+  orb-tools: circleci/orb-tools@10.0
 
+# Pipeline Parameters
+## These parameters are used internally by orb-tools. Skip to the Jobs section.
 parameters:
-  dev-orb-version:
-    default: 'dev:beta'
-    type: string
   run-integration-tests:
-    default: false
+    description: An internal flag to prevent integration test from running before a development version has been created.
     type: boolean
+    default: false
+  dev-orb-version:
+    description: >
+      The development version of the orb to test.
+      This value is automatically adjusted by the "trigger-integration-tests-workflow" job to correspond with the specific version created by the commit and should not be edited.
+      A "dev:alpha" version must exist for the initial pipeline run.
+    type: string
+    default: "dev:alpha"
 
 jobs:
   integration-tests-for-rpmbuild:
@@ -34,6 +41,7 @@ workflows:
             - integration-tests-for-rpmbuild
     when: << pipeline.parameters.run-integration-tests >>
   lint_pack-validate_publish-dev:
+    unless: << pipeline.parameters.run-integration-tests >>
     jobs:
       - orb-tools/lint
       - orb-tools/pack:
@@ -47,4 +55,3 @@ workflows:
           name: trigger-integration-dev
           requires:
             - orb-tools/publish-dev
-    unless: << pipeline.parameters.run-integration-tests >>
