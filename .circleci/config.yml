@@ -21,7 +21,7 @@ parameters:
 
 jobs:
   integration-tests-for-rpmbuild:
-    executor: orb-tools/ubuntu
+    executor: cli/default
     steps:
       - checkout
 
