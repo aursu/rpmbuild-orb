@@ -1,0 +1,7 @@
+version: 2.1
+
+description: >
+  Build RPM packages and upload them into Bintray
+
+display:
+  source_url: https://github.com/aursu/rpmbuild-orb
