@@ -2,21 +2,31 @@ description: >
   Checkout project  and build  Docker image
 
 parameters:
+  build_service:
+    type: string
+    description: >
+      Docker Compose service inside provided Docker Compose config
+
   compose_file:
     type: string
     default: "build/docker-compose.yml"
     description: >
       Docker Compose file to use for image building
 
-  build_service:
-    type: string
+  shorttag:
+    type: boolean
+    default: true
     description: >
-      Docker Compose service inside provided Docker Compose config
+      Flag which used to enable/disable Docker images building
+      prefixed with short OS version tags
 
 executor: default
 
 steps:
   - git
   - image:
-      file: << parameters.compose_file >>
       service: << parameters.build_service >>
+      file: << parameters.compose_file >>
+      shorttag: << parameters.shorttag >>
+
+
