@@ -3,7 +3,12 @@ description: >
 usage:
   version: 2.1
   orbs:
-    rpmbuild: aursu/rpmbuild@1.0
+    rpmbuild: aursu/rpmbuild@1.1.5
+  parameters:
+    package-vcs-url:
+      description: Package VCS URL for BinTray
+      type: string
+      default: https://github.com/aursu/rpmbuild-php-pear
   jobs:
     build:
       executor:

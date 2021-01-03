@@ -27,6 +27,9 @@ parameters:
 executor:
   name: default
 
+environment:
+  PACKAGE_VCS_URL: << pipeline.parameters.package-vcs-url >>
+
 steps:
   - git
   - build:

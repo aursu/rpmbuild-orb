@@ -28,5 +28,3 @@ steps:
       service: << parameters.build_service >>
       file: << parameters.compose_file >>
       shorttag: << parameters.shorttag >>
-
-
