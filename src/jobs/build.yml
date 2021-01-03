@@ -24,11 +24,16 @@ parameters:
     description: >
       BinTray repository to upload RPM packages into
 
+  package-vcs-url:
+    type: string
+    default: << pipeline.parameters.package-vcs-url >>
+    description: Package VCS URL for BinTray
+
 executor:
   name: default
 
 environment:
-  PACKAGE_VCS_URL: << pipeline.parameters.package-vcs-url >>
+  PACKAGE_VCS_URL: << parameters.package-vcs-url >>
 
 steps:
   - git
