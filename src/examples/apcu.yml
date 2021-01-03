@@ -15,6 +15,7 @@ usage:
         - rpmbuild/rpm:
             service: centos7apcu
         - rpmbuild/bintray:
+            bintray-repo: php73custom
             uploader: centos7bintray
         - rpmbuild/image:
             file: build/php71/docker-compose.yml

@@ -18,6 +18,12 @@ parameters:
     description: >
       Docker service to use in order to upload RPM packages into BinTray
 
+  bintray-repo:
+    type: string
+    default: $BINTRAY_REPO
+    description: >
+      BinTray repository to upload RPM packages into
+
 executor:
   name: default
 
@@ -30,4 +36,5 @@ steps:
       file: << parameters.build_file >>
       service: << parameters.build_service >>
   - bintray:
+      bintray-repo: << parameters.bintray-repo >>
       uploader: << parameters.bintray_uploader >>
