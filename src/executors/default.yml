@@ -5,9 +5,7 @@ machine:
   image: ubuntu-1604:201903-01
 
 environment:
-  OS6: "6.10"
   OS7: "7.9.2009"
   OS8: "8.3.2011"
-  OS6TAG: "6.10"
   OS7TAG: "7.9.2009"
   OS8TAG: "8.3.2011"

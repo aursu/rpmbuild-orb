@@ -32,7 +32,6 @@ steps:
         - run:
             name: Build docker image using << parameters.service >> with short OS tags
             environment:
-              OS6TAG: 6
               OS7TAG: 7
               OS8TAG: 8
             command: docker-compose -f << parameters.file >> build << parameters.service >>
@@ -48,7 +47,6 @@ steps:
         - run:
             name: Build docker image using << parameters.service >> with short OS tags
             environment:
-              OS6TAG: 6
               OS7TAG: 7
               OS8TAG: 8
             command: docker-compose -f << parameters.file >> push << parameters.service >>
