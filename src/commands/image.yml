@@ -33,7 +33,7 @@ steps:
             name: Build docker image using << parameters.service >> with short OS tags
             environment:
               OS7TAG: 7
-              OS8TAG: 8
+              OS8TAG: stream8
             command: docker-compose -f << parameters.file >> build << parameters.service >>
   - run:
       name: Login into Docker Hub
@@ -48,5 +48,5 @@ steps:
             name: Build docker image using << parameters.service >> with short OS tags
             environment:
               OS7TAG: 7
-              OS8TAG: 8
+              OS8TAG: stream8
             command: docker-compose -f << parameters.file >> push << parameters.service >>
