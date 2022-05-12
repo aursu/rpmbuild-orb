@@ -1,5 +1,6 @@
 # rpmbuild-orb [![CircleCI](https://circleci.com/gh/aursu/rpmbuild-orb/tree/master.svg?style=svg)](https://circleci.com/gh/aursu/rpmbuild-orb/tree/master) [![CircleCI Orb Version](https://img.shields.io/badge/endpoint.svg?url=https://badges.circleci.io/orb/aursu/rpmbuild)](https://circleci.com/orbs/registry/orb/aursu/rpmbuild)
-rpmbuild CircleCI orb
+
+aursu/rpmbuild CircleCI Orb
 
 ## Usage
 
