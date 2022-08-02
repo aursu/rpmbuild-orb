@@ -25,15 +25,12 @@ parameters:
       BinTray repository to upload RPM packages into
 
   artifactory-url:
-    type: string
-    default: << pipeline.parameters.artifactory-url >>
+    type: env_var_name
+    default: ARTIFACTORY_URL
     description: Artifactory instance URL
 
 executor:
   name: default
-
-environment:
-  ARTIFACTORY_URL: << parameters.artifactory-url >>
 
 steps:
   - git
@@ -46,3 +43,5 @@ steps:
   - bintray:
       bintray-repo: << parameters.bintray-repo >>
       uploader: << parameters.bintray_uploader >>
+      environment:
+        ARTIFACTORY_URL: << parameters.artifactory-url >>
