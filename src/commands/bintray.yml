@@ -17,10 +17,10 @@ parameters:
     description: >
       BinTray repository to upload RPM packages into
   artifactory-url:
+    description: |
+      Artifactory instance URL
     type: string
     default: $ARTIFACTORY_URL
-    description: >
-      Artifactory instance URL
 
 steps:
   - run:
@@ -32,8 +32,8 @@ steps:
         docker-compose -f rpmbuild/docker-compose.bintray.yml run --rm \
           -e BINTRAY_USER=$BINTRAY_USER \
           -e BINTRAY_API_KEY=$BINTRAY_API_KEY \
-          -e BINTRAY_REPO=$BINTRAY_REPO \
-          -e ARTIFACTORY_URL=$ARTIFACTORY_URL << parameters.uploader >>
+          -e BINTRAY_REPO=$PARAM_BINTRAY_REPO \
+          -e ARTIFACTORY_URL=$PARAM_ARTIFACTORY_URL << parameters.uploader >>
       environment:
-        BINTRAY_REPO: << parameters.bintray-repo >>
-        ARTIFACTORY_URL: << parameters.artifactory-url >>
+        PARAM_BINTRAY_REPO: "<<parameters.bintray-repo>>"
+        PARAM_ARTIFACTORY_URL: "<<parameters.artifactory-url>>"
