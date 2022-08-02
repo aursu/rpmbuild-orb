@@ -43,6 +43,9 @@ parameters:
 executor:
   name: default
 
+environment:
+  ARTIFACTORY_URL: << parameters.artifactory-url >>
+
 steps:
   - git
   - base:
@@ -57,5 +60,4 @@ steps:
   - bintray:
       bintray-repo: << parameters.bintray-repo >>
       uploader: << parameters.bintray_uploader >>
-      environment:
-        ARTIFACTORY_URL: << parameters.artifactory-url >>
+
