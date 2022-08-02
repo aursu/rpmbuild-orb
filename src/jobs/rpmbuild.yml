@@ -37,7 +37,7 @@ parameters:
 
   artifactory-url:
     type: string
-    default: << pipeline.parameters.artifactory-url >>
+    default: $ARTIFACTORY_URL
     description: Package VCS URL for BinTray
 
 executor:
