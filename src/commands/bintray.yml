@@ -16,6 +16,11 @@ parameters:
     default: $BINTRAY_REPO
     description: >
       BinTray repository to upload RPM packages into
+  artifactory-url:
+    type: string
+    default: $ARTIFACTORY_URL
+    description: >
+      Artifactory instance URL
 
 steps:
   - run:
@@ -31,3 +36,4 @@ steps:
           -e ARTIFACTORY_URL=$ARTIFACTORY_URL << parameters.uploader >>
       environment:
         BINTRAY_REPO: << parameters.bintray-repo >>
+        ARTIFACTORY_URL: << parameters.artifactory-url >>
