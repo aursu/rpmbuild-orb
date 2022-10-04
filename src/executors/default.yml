@@ -7,5 +7,7 @@ machine:
 environment:
   OS7: "7.9.2009"
   OS8: stream8
+  OS9: stream9-20220919.0
   OS7TAG: "7.9.2009"
   OS8TAG: stream8
+  OS9TAG: stream9

@@ -34,6 +34,7 @@ steps:
             environment:
               OS7TAG: 7
               OS8TAG: stream8
+              OS9TAG: stream9
             command: docker-compose -f << parameters.file >> build << parameters.service >>
   - run:
       name: Login into Docker Hub
@@ -49,4 +50,5 @@ steps:
             environment:
               OS7TAG: 7
               OS8TAG: stream8
+              OS9TAG: stream9
             command: docker-compose -f << parameters.file >> push << parameters.service >>
