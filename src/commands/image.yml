@@ -46,7 +46,7 @@ steps:
       condition: << parameters.shorttag >>
       steps:
         - run:
-            name: Build docker image using << parameters.service >> with short OS tags
+            name: Push image into Docker Hub with short OS tags
             environment:
               OS7TAG: 7
               OS8TAG: stream8
