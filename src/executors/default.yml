@@ -8,8 +8,8 @@ environment:
   OS7: "7.9.2009"
   OS8: stream8
   OS9: stream9-20221206.0
-  RL8: "8.6.20227707"
-  RL9: "9.0.20220720"
+  RL8: "8.7.20221112"
+  RL9: "9.1.20221123"
   OS7TAG: "7.9.2009"
   OS8TAG: stream8
   OS9TAG: stream9-20221206.0
