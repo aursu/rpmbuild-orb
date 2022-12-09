@@ -59,4 +59,3 @@ steps:
       bintray-repo: << parameters.bintray-repo >>
       uploader: << parameters.bintray_uploader >>
       artifactory-url: <<parameters.artifactory-url>>
-
