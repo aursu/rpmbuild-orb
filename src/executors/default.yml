@@ -2,14 +2,14 @@ description: >
   CentOS RPM and Docker rpmbuild images build environment
 
 machine:
-  image: ubuntu-2004:202201-02
+  image: ubuntu-2204:2023.07.2
 
 environment:
   OS7: "7.9.2009"
   OS9: stream9-20240226.1
   RL8: "8.9.20231119"
-  RL9: "9.3.20231119"
+  RL9: "9.4.20240509"
   OS7TAG: "7.9.2009"
   OS9TAG: stream9-20240226.1
   RL8TAG: "8.9.20231119"
-  RL9TAG: "9.3.20231119"
+  RL9TAG: "9.4.20240509"
