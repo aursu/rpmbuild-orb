@@ -6,10 +6,10 @@ machine:
 
 environment:
   OS7: "7.9.2009"
-  OS9: stream9-20240429.0
+  OS9: stream9-20240527.0
   RL8: "8.9.20231119"
   RL9: "9.4.20240509"
   OS7TAG: "7.9.2009"
-  OS9TAG: stream9-20240429.0
+  OS9TAG: stream9-20240527.0
   RL8TAG: "8.9.20231119"
   RL9TAG: "9.4.20240509"
