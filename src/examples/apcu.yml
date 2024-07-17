@@ -3,7 +3,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    rpmbuild: aursu/rpmbuild@1.1.5
+    rpmbuild: aursu/rpmbuild@1.1.27
   parameters:
     package-vcs-url:
       description: Package VCS URL for BinTray
