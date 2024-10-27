@@ -49,7 +49,6 @@ steps:
         - run:
             name: Push image into Docker Hub with short OS tags
             environment:
-              OS7TAG: 7
               OS9TAG: stream9
               RL8TAG: 8
               RL9TAG: 9
