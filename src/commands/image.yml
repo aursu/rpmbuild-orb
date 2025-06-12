@@ -34,6 +34,7 @@ steps:
             environment:
               OS7TAG: 7
               OS9TAG: stream9
+              OS10TAG: stream10
               RL8TAG: 8
               RL9TAG: 9
             command: docker-compose -f << parameters.file >> build << parameters.service >>
@@ -51,6 +52,7 @@ steps:
             environment:
               OS7TAG: 7
               OS9TAG: stream9
+              OS10TAG: stream10
               RL8TAG: 8
               RL9TAG: 9
             command: docker-compose -f << parameters.file >> push << parameters.service >>
