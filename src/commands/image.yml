@@ -32,7 +32,6 @@ steps:
         - run:
             name: Build docker image using << parameters.service >> with short OS tags
             environment:
-              OS7TAG: 7
               OS9TAG: stream9
               OS10TAG: stream10
               RL8TAG: 8
@@ -50,7 +49,6 @@ steps:
         - run:
             name: Push image into Docker Hub with short OS tags
             environment:
-              OS7TAG: 7
               OS9TAG: stream9
               OS10TAG: stream10
               RL8TAG: 8
