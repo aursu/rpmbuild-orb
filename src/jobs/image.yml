@@ -19,6 +19,14 @@ parameters:
     description: >
       Flag which used to enable/disable Docker images building
       prefixed with short OS version tags
+      
+  registry:
+    type: string
+    default: ""
+    description: >
+      Docker registry to use for pushing images.
+      Default is Docker Hub.
+      If you want to use GitHub Packages, set it to ghcr.io
 
 executor: default
 
@@ -28,3 +36,4 @@ steps:
       service: << parameters.build_service >>
       file: << parameters.compose_file >>
       shorttag: << parameters.shorttag >>
+      registry: << parameters.registry >>
