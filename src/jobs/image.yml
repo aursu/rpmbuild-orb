@@ -19,7 +19,7 @@ parameters:
     description: >
       Flag which used to enable/disable Docker images building
       prefixed with short OS version tags
-      
+
   registry:
     type: string
     default: ""
