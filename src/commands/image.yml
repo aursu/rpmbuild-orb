@@ -44,6 +44,7 @@ steps:
               OS10TAG: stream10
               RL8TAG: 8
               RL9TAG: 9
+              RL10TAG: 10
             command: docker-compose -f << parameters.file >> build << parameters.service >>
   - run:
       name: Login into Docker Hub
@@ -66,4 +67,5 @@ steps:
               OS10TAG: stream10
               RL8TAG: 8
               RL9TAG: 9
+              RL10TAG: 10
             command: docker-compose -f << parameters.file >> push << parameters.service >>
