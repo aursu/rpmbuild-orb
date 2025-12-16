@@ -22,6 +22,14 @@ parameters:
       Flag which used to enable/disable Docker images building
       prefixed with short OS version tags
 
+  registry:
+    type: string
+    default: ""
+    description: >
+      Docker registry to use for pushing images.
+      Default is Docker Hub.
+      If you want to use GitHub Packages, set it to ghcr.io
+
 steps:
   - run:
       name: Build docker image using << parameters.service >>
@@ -36,10 +44,16 @@ steps:
               OS10TAG: stream10
               RL8TAG: 8
               RL9TAG: 9
+              RL10TAG: 10
             command: docker-compose -f << parameters.file >> build << parameters.service >>
   - run:
       name: Login into Docker Hub
-      command: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      command: |
+        if [ -z "<< parameters.registry >>" ]; then
+          docker login -u $DOCKER_USER -p $DOCKER_PASS
+        else
+          docker login << parameters.registry >> -u $DOCKER_USER -p $DOCKER_PASS
+        fi
   - run:
       name: Push image into Docker Hub
       command: docker-compose -f << parameters.file >> push << parameters.service >>
@@ -53,4 +67,5 @@ steps:
               OS10TAG: stream10
               RL8TAG: 8
               RL9TAG: 9
+              RL10TAG: 10
             command: docker-compose -f << parameters.file >> push << parameters.service >>
